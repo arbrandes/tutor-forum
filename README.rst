@@ -1,7 +1,7 @@
 Forum plugin for `Tutor <https://docs.tutor.overhang.io>`__
 ============================================================
 
-This plugin adds `discussion forums <https://github.com/edx/cs_comments_service>`__ to your `Open edX <https://open.edx.org/>`__ platform, such that students can have conversations about the courses they are following right in your LMS.
+This plugin adds `discussion forums <https://github.com/openedx/cs_comments_service>`__ to your `Open edX <https://openedx.org/>`__ platform, such that students can have conversations about the courses they are following right in your LMS.
 
 .. image:: https://overhang.io/static/catalog/screenshots/forum.png
   :alt: Forum screenshot

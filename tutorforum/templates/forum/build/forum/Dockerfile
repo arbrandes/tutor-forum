@@ -1,4 +1,4 @@
-FROM docker.io/ruby:2.5.7-slim-stretch
+FROM docker.io/ruby:3.0.4-slim-bullseye
 MAINTAINER Overhang.IO <contact@overhang.io>
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -24,14 +24,17 @@ ENV PATH :${PATH}
 USER app
 
 # Install rake and bundler
-ENV PATH "/app/bin:/app/.gem/ruby/2.5.0/bin:$PATH"
+ENV PATH "/app/bin:/app/.gem/ruby/3.0.4/bin:$PATH"
 RUN gem install --user-install bundler --version 1.17.3
-RUN gem install --user-install rake --version 13.0.1
+RUN gem install --user-install rake --version 12.3.3
 
 # Install forum
-RUN git clone https://github.com/edx/cs_comments_service.git --branch {{ OPENEDX_COMMON_VERSION }} --depth 1 /app/cs_comments_service
+# [TEMP] Using kshitij/ruby3 branch until its merged and backported to Olive
+# Until as well this PR is merged: https://github.com/openedx/cs_comments_service/pull/395
+ENV BUNDLE_GEMFILE Gemfile3
+RUN git clone https://github.com/ghassanmas/cs_comments_service.git --branch timeout --depth 1 /app/cs_comments_service
 WORKDIR /app/cs_comments_service
-RUN bundle install --deployment
+RUN bundle install --deployment --gemfile=Gemfile3
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
