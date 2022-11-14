@@ -40,7 +40,7 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.6",
-    install_requires=["tutor>=14.0.0,<16.0.0"], #[TEMP] Accept 14 version for testing purpose
+    install_requires=["tutor>=15.0.0,<16.0.0"],
     entry_points={
         "tutor.plugin.v1": [
             "forum = tutorforum.plugin"

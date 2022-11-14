@@ -26,7 +26,7 @@ USER app
 # Install rake and bundler
 ENV PATH "/app/bin:/app/.gem/ruby/3.0.4/bin:$PATH"
 RUN gem install --user-install bundler --version 1.17.3
-RUN gem install --user-install rake --version 12.3.3
+RUN gem install --user-install rake --version 13.0.6
 
 # Install forum
 # [TEMP] Using kshitij/ruby3 branch until its merged and backported to Olive
@@ -34,7 +34,7 @@ RUN gem install --user-install rake --version 12.3.3
 ENV BUNDLE_GEMFILE Gemfile3
 RUN git clone https://github.com/ghassanmas/cs_comments_service.git --branch timeout --depth 1 /app/cs_comments_service
 WORKDIR /app/cs_comments_service
-RUN bundle install --deployment --gemfile=Gemfile3
+RUN bundle install --deployment
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 

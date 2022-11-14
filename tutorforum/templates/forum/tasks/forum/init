@@ -1,2 +1,2 @@
-BUNDLE_GEMFILE=Gemfile3 bundle exec rake search:initialize
-BUNDLE_GEMFILE=Gemfile3 bundle exec rake search:rebuild_indices
+bundle exec rake search:initialize
+bundle exec rake search:rebuild_indices
