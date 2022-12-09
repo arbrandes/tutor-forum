@@ -31,11 +31,11 @@ RUN gem install --user-install rake --version 13.0.6
 # Install forum
 ENV BUNDLE_GEMFILE Gemfile3
 RUN git clone https://github.com/edx/cs_comments_service.git --branch {{ OPENEDX_COMMON_VERSION }} --depth 1 /app/cs_comments_service
+WORKDIR /app/cs_comments_service
 # [TEMP] Applying ruby3 patches Olive
 # Until this PR is merged: https://github.com/openedx/cs_comments_service/pull/403
 RUN curl -fsSL https://github.com/openedx/cs_comments_service/commit/d11b495004dbacf7e00dab1ae4947d8a41d8289b.patch | git am
 RUN curl -fsSL https://github.com/openedx/cs_comments_service/commit/3fb911ec7e2cf549c3e7087bb90a08a06055b43b.patch | git am
-WORKDIR /app/cs_comments_service
 RUN bundle install --deployment
 
 ENTRYPOINT ["docker-entrypoint.sh"]
