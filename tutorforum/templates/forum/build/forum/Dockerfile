@@ -4,7 +4,7 @@ MAINTAINER Overhang.IO <contact@overhang.io>
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt update && \
   apt upgrade -y && \
-  apt install -y git wget autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev
+  apt install -y git wget curl autoconf bison build-essential libssl-dev libyaml-dev libreadline6-dev zlib1g-dev libncurses5-dev libffi-dev libgdbm-dev
 
 # Install dockerize to wait for mongodb/elasticsearch availability
 ARG DOCKERIZE_VERSION=v0.6.1
