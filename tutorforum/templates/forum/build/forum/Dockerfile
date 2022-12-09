@@ -34,6 +34,8 @@ RUN git clone https://github.com/edx/cs_comments_service.git --branch {{ OPENEDX
 WORKDIR /app/cs_comments_service
 # [TEMP] Applying ruby3 patches Olive
 # Until this PR is merged: https://github.com/openedx/cs_comments_service/pull/403
+RUN git config --global user.email "ghassan@zaat.dev" \
+  && git config --global user.name "Ghassan"
 RUN curl -fsSL https://github.com/openedx/cs_comments_service/commit/d11b495004dbacf7e00dab1ae4947d8a41d8289b.patch | git am
 RUN curl -fsSL https://github.com/openedx/cs_comments_service/commit/3fb911ec7e2cf549c3e7087bb90a08a06055b43b.patch | git am
 RUN bundle install --deployment
