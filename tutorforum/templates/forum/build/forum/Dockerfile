@@ -30,9 +30,9 @@ RUN gem install --user-install rake --version 13.0.6
 
 # Install forum
 # [TEMP] Using kshitij/ruby3 branch until its merged and backported to Olive
-# Until as well this PR is merged: https://github.com/openedx/cs_comments_service/pull/395
+# Until as well this PR is merged: https://github.com/openedx/cs_comments_service/pull/403
 ENV BUNDLE_GEMFILE Gemfile3
-RUN git clone https://github.com/ghassanmas/cs_comments_service.git --branch timeout --depth 1 /app/cs_comments_service
+RUN git clone https://github.com/ghassanmas/cs_comments_service.git --branch open-release/olive.master --depth 1 /app/cs_comments_service
 WORKDIR /app/cs_comments_service
 RUN bundle install --deployment
 
